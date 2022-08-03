@@ -16,7 +16,7 @@
         @end="drag = false"
         @remove="taskDone">
       <transition-group type="transition" :name="!drag ? 'flip-list' : null">
-      <div class="todo" v-for="(task, index) in todo" :style="{'background': task.background}" :key="index">{{task.name}} {{task.id}}</div>
+      <div class="todo" v-for="(task, index) in todo" :style="{'background': task.background}" :key="index">{{task.name}}</div>
       </transition-group>
     </draggable>
     <div v-if="confirmDone" class="taskDone">task done!</div>
@@ -46,11 +46,26 @@ export default {
       confirmDone: false,
       nameHolder: "",
       colorHolder: "",
-      idHolder: "",
       pushAnim: false
     }
   },
+  watch: {
+    todo: {
+      handler: function(updatedList) {
+        localStorage.setItem('todo', JSON.stringify(updatedList));
+      },
+      deep: true
+    }
+  },
+  mounted() {
+    this.getTodoli();
+  },
   methods:{
+    getTodoli() {
+      if (localStorage.getItem('todo')) {
+        this.todo = JSON.parse(localStorage.getItem('todo'));
+      }
+    },
     pushNote(){ // main submit function
       if(this.nameHolder.trim().length !== 0) { // white space check
       this.randomizeColor(); // randomize color before push

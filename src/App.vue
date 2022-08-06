@@ -140,9 +140,17 @@ body {
   cursor: move;
   width:max-content;
   line-break: normal;
-  display:inline-flex;
+  display:inline-block;
   box-shadow: 0px 10px 0px hsla(0, 0%, 0%, 0.1);
   animation: fade-in 0.5s forwards;
+}
+@media only screen and (max-width: 500px){
+	.todo {
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width: 30ch;
+    }
 }
 
 .add{

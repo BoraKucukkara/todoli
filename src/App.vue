@@ -7,6 +7,7 @@
       <img src="./assets/todoli.svg"/>
       <p>Add a note</p>
       <span>To complate a task, drag it to green circle down below</span>
+      <i>made with <font-awesome-icon icon="fa-solid fa-wand-sparkles" class="wandglow" /> by Bora Kucukkara</i>
     </div>
     <draggable tag="div"
         class="list-container"
@@ -277,6 +278,12 @@ input:focus {
   width: 50vw;
   margin-bottom: 3rem;
   max-width:20rem;
+}
+.empty-screen i {
+  padding: 1.2em 0 0 0;
+}
+.empty-screen .wandglow {
+ color:#695573;
 }
 
 /* --------- ANIMATIONS -----------*/

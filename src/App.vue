@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-
     <input v-model="nameHolder" type="text" class="input-note" @keyup.enter="pushNote()"><a href="#" class="add" :class="pushAnim ? 'input-anim' : ''" @click="pushNote()"><font-awesome-icon icon="fa-solid fa-plus" /></a>
-
     <div v-if="this.todo.length === 0" class="empty-screen">
       <img src="./assets/todoli.svg"/>
       <p>Add a note</p>
@@ -94,7 +92,6 @@ export default {
       let drop = document.getElementsByClassName("drop-zone");
       drop.classList.remove('drop-anim');
     }
-    
   },
   computed: {
     dragOptions() {

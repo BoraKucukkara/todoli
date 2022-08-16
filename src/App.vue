@@ -62,7 +62,7 @@ export default {
   methods:{
     getTodoli() {
       if (localStorage.getItem('todo')) {
-        this.todo = JSON.parse(localStorage.getItem('todo'));
+      this.todo = JSON.parse(localStorage.getItem('todo'));
       }
     },
     pushNote(){ // main submit function

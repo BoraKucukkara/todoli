@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <input v-model="nameHolder" type="text" class="input-note" @keyup.enter="pushNote()"><a href="#" class="add" :class="pushAnim ? 'input-anim' : ''" @click="pushNote()"><font-awesome-icon icon="fa-solid fa-plus" /></a>
+    <input v-model="nameHolder" type="text" class="input-note" @keyup.enter="pushNote()"><button class="add" :class="pushAnim ? 'input-anim' : ''" @click="pushNote()"><font-awesome-icon icon="fa-solid fa-plus" /></button>
     <div v-if="this.todo.length === 0" class="empty-screen">
       <img src="./assets/todoli.svg"/>
       <p>Add a note</p>
@@ -25,7 +25,7 @@
         v-bind="dragOptions"
         @start="drag = false"
         @end="drag = false">
-        <font-awesome-icon icon="fa-solid fa-check" />
+        <font-awesome-icon v-if="!drag" icon="fa-solid fa-check" />
     </draggable>
   </div>
 </template>
@@ -81,7 +81,7 @@ export default {
     taskDone(){ // drop zone success feedback
       this.confirmDone = true;
       setTimeout(()=> {
-        this.confirmDone = false}, 1000);
+        this.confirmDone = false}, 700);
         this.done = []
     },
     dropAniStart() { // adding class when drag starts
@@ -124,8 +124,11 @@ body {
 }
 .list-container {
   width:100%;
-  min-height:50vh;
-  padding:1rem;
+  min-height:80vh;
+  padding:2rem 1rem 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .todo, .done {
   word-break: break-all;
@@ -162,10 +165,10 @@ body {
   line-height: 5rem;
   font-size:1.5rem;
   color:#fff;
-  user-select: none;
   z-index: 10;
+  border:0;
   }
-.add:visited {text-decoration: none;}
+
 .del{
   position:fixed;
   bottom: 1rem;
@@ -235,7 +238,7 @@ input:focus {
   top:0;
   width:100vw;
   height: 100vh;
-  font-size: 5rem;
+  font-size: 4rem;
   color:#6d6075;
   z-index: 10;
   animation: fade-in-out 0.8s forwards;

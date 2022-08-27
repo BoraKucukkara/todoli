@@ -167,6 +167,7 @@ body {
   color:#fff;
   z-index: 10;
   border:0;
+  cursor: pointer;
   }
 
 .del{
@@ -239,7 +240,7 @@ input:focus {
   width:100vw;
   height: 100vh;
   font-size: 4rem;
-  color:#6d6075;
+  color:#fff;
   z-index: 10;
   animation: fade-in-out 0.8s forwards;
 }
@@ -307,10 +308,10 @@ input:focus {
     100%{opacity: 0.1;width:5rem;height:5rem;bottom:0.6rem;left:0.6rem;}
 }
 @keyframes fade-in-out { /* task-done*/
-    0% {opacity: 0;transform:translateY(6rem)}
-    30% {opacity: 1;transform:translateY(0rem)}
-    70% {opacity: 1;transform:translateY(0rem)}
-    100% {opacity: 0;transform:translateY(-6rem)}
+    0% {opacity: 0;transform:translateY(6rem);text-shadow: 0px 10px 0px hsla(0, 0%, 0%, 0.3);}
+    30% {opacity: 1;transform:translateY(0rem);text-shadow: 0px 30px 10px hsla(0, 0%, 0%, 0.3);}
+    70% {opacity: 1;transform:translateY(0rem);text-shadow: 0px 30px 10px hsla(0, 0%, 0%, 0.3);}
+    100% {opacity: 0;transform:translateY(-6rem);text-shadow: 0px 10px 0px hsla(0, 0%, 0%, 0.3);}
 }
 @keyframes inputanim { /* add */
   0% {transform: rotate(0deg);}

@@ -5,7 +5,7 @@
       <img src="./assets/todoli.svg"/>
       <p>Add a note</p>
       <span>To complate a task, drag it to green circle down below</span>
-      <i>made with <font-awesome-icon icon="fa-solid fa-wand-sparkles" class="wandglow" /> by Bora Kucukkara</i>
+      <i>made with <font-awesome-icon icon="fa-solid fa-wand-sparkles" class="wandglow" /> by <a target="_blank" href="http://www.borakucukkara.com">Bora Kucukkara</a></i>
     </div>
     <draggable tag="div"
         class="list-container"
@@ -15,7 +15,7 @@
         @end="drag = false"
         @remove="taskDone">
       <transition-group type="transition" :name="!drag ? 'flip-list' : null">
-      <div class="todo" v-for="(task, index) in todo" :style="{'background': task.background}" :key="index">{{task.name}}</div>
+        <div class="todo" v-for="(task, index) in todo" :style="{'background': task.background}" :key="index">{{task.name}}</div>
       </transition-group>
     </draggable>
     <div v-if="confirmDone" class="taskDone">task done!</div>
@@ -286,7 +286,11 @@ input:focus {
 .empty-screen .wandglow {
  color:#695573;
 }
+.empty-screen a {
+  text-decoration: none;
+  color:#695573;
 
+}
 /* --------- ANIMATIONS -----------*/
 
 
